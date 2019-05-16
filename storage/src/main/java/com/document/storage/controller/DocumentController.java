@@ -1,4 +1,4 @@
-package com.document.storage.controller;
+﻿package com.document.storage.controller;
 
 import com.document.storage.util.DocumentUtil;
 import com.document.storage.util.FileUtil;
@@ -11,7 +11,7 @@ import java.io.*;
 @RequestMapping("/storage/documents")
 public class DocumentController {
 
-    // 获取项目主目录绝度路径
+    // get absolute path of home directory
     private static String path = System.getProperty("user.dir");
 
 //    static {
@@ -19,10 +19,10 @@ public class DocumentController {
 //    }
 
     /**
-     * 创建资源
-     * @param response HTTP响应
-     * @param text 资源内容
-     * @return 资源ID
+     * create document
+     * @param response: HTTP responce
+     * @param text: document context
+     * @return document id
      */
     @PostMapping()
     public String create(HttpServletResponse response, @RequestBody String text) {
@@ -31,7 +31,6 @@ public class DocumentController {
         String filePath = path + "/" + id;
         File file = new File(filePath);
 
-        // 避免文件ID重复导致已存在的被文件覆盖
         while (file.exists()) {
             id = DocumentUtil.getUuid();
             filePath = path + "/" + id;
@@ -42,9 +41,9 @@ public class DocumentController {
     }
 
     /**
-     * 根据资源ID获取资源
-     * @param id 资源的ID
-     * @return 资源的内容
+     * get document with docId
+     * @param id: docId
+     * @return document context
      */
     @GetMapping("/{docId}")
     public String query(@PathVariable("docId") String id) {
@@ -52,10 +51,10 @@ public class DocumentController {
     }
 
     /**
-     * 根据资源ID修改资源
-     * @param response HTTP响应
-     * @param id 资源的ID
-     * @param text 修改后的资源内容
+     * update document context with docId
+     * @param response: HTTP response
+     * @param id: docId
+     * @param text: updated document context
      */
     @PutMapping("/{docId}")
     public void update(HttpServletResponse response, @PathVariable("docId") String id, @RequestBody String text) {
@@ -65,9 +64,9 @@ public class DocumentController {
     }
 
     /**
-     * 根据资源ID删除资源
-     * @param response HTTP响应
-     * @param id 资源的ID
+     * delete document with docId
+     * @param response: HTTP response
+     * @param id: docId
      */
     @DeleteMapping("/{docId}")
     @ResponseBody

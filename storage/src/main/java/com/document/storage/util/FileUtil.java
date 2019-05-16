@@ -1,17 +1,17 @@
-package com.document.storage.util;
+﻿package com.document.storage.util;
 
 import java.io.*;
 
 /**
- * 文件操作工具类
+ * File Util class
  */
 public class FileUtil {
 
     /**
-     * 将内容写入文件
-     * @param path 文件路径
-     * @param text 文件内容
-     * @param exist 文件是否已经存在，若不存在就先创建再写，若已存在就直接覆写修改，主要针对POST和PUT请求
+     * write context in file
+     * @param path: file path
+     * @param text: context
+     * @param exist: check file exists or not. If not, then create first. If file exists, update context.
      */
     public static void writeToFile(String path, String text, boolean exist) {
         File file = new File(path);
@@ -47,9 +47,9 @@ public class FileUtil {
     }
 
     /**
-     * 从文件中读取内容
-     * @param path 文件路径
-     * @return 文件内容
+     * read context from file
+     * @param path: file path
+     * @return: file context
      */
     public static String readFromFile(String path) {
         File file = new File(path);

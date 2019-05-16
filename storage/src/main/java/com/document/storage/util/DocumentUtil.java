@@ -1,10 +1,7 @@
-package com.document.storage.util;
+﻿package com.document.storage.util;
 
 import java.util.Random;
 
-/**
- * 工具类
- */
 public class DocumentUtil {
 
 
@@ -14,8 +11,8 @@ public class DocumentUtil {
             "W", "X", "Y", "Z" };
 
     /**
-     * 随机生成20位数字和大写字母混合的字符串
-     * @return 随机生成的字符串
+     * Randomly generate alphanumeric document ID with a length of 20 characters
+     * @return a string with 20 characters in length
      */
     public static String getUuid() {
         StringBuilder builder = new StringBuilder();
